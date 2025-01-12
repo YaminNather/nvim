@@ -8,7 +8,7 @@ if not vim.g.vscode then
 		{ 
 			"williamboman/mason-lspconfig.nvim",
 			opts = {
-				ensure_installed = { "lua_ls", "gopls", "kotlin_language_server" },
+				ensure_installed = { "lua_ls", "gopls", "kotlin_language_server", "jdtls" },
 			},
 			config = true,
 		},
@@ -30,7 +30,9 @@ if not vim.g.vscode then
 
 				vim.keymap.set('i', "<C-k>", function() vim.lsp.buf.signature_help() end, { silent = true, noremap = true, }, {desc = "Open LSP signature help"})
 			end
-		}
+		},
+
+		{ "mfussenegger/nvim-jdtls", }
 
 	}
 else

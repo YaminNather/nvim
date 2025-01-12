@@ -10,6 +10,7 @@ if not vim.g.vscode then
 			config = function(_, opts)
 				local builtin = require("telescope.builtin")
 				vim.keymap.set("n", "<leader>be", builtin.buffers, {desc = "List Buffers"})
+				vim.keymap.set("n", "<Leader><Leader>", builtin.find_files, {desc = "Find Files"})
 
 				require("telescope").load_extension("ui-select")
 
