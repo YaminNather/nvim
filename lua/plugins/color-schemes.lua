@@ -4,7 +4,9 @@ if not vim.g.vscode then
 			"catppuccin/nvim",
 			name = "catppuccin",
 			priority = 1000,
-		}
+			main = "catppuccin",
+			config = true,
+		},
 	}
 else
 	return {}

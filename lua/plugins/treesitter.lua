@@ -4,10 +4,10 @@ if not vim.g.vscode then
 		build = ":TSUpdate",
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "lua", "vim", "go", "rust", "kotlin", "java" },
+				ensure_installed = { "lua", "vim", "go", "rust", "kotlin", "java", "dart" },
 				sync_install = "false",
-				highlight = { enable = true },
-				indent = { enable = false },
+				highlight = { enable = true, },
+				indent = { enable = true, },
 			})
 		end
 	}
