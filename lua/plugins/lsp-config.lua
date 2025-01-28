@@ -8,7 +8,7 @@ if not vim.g.vscode then
 		{ 
 			"williamboman/mason-lspconfig.nvim",
 			opts = {
-				ensure_installed = { "lua_ls", "gopls", "kotlin_language_server", "jdtls" },
+				ensure_installed = { "lua_ls", "gopls", "kotlin_language_server", "jdtls", "bashls" },
 			},
 			config = true,
 		},
@@ -21,7 +21,7 @@ if not vim.g.vscode then
 			config = function(_, opts)
 				local lspconfig = require("lspconfig")
 
-				local lsps = { "lua_ls", "rust_analyzer", "gopls", "kotlin_language_server" }
+				local lsps = { "lua_ls", "rust_analyzer", "gopls", "kotlin_language_server", "bashls" }
 
 				for _, lsp in ipairs(lsps) do
 					local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -29,6 +29,7 @@ if not vim.g.vscode then
 				end
 
 				vim.keymap.set('i', "<C-k>", function() vim.lsp.buf.signature_help() end, { silent = true, noremap = true, }, {desc = "Open LSP signature help"})
+				vim.keymap.set('n', "<Leader>cr", function() vim.lsp.buf.rename() end, { silent = true, noremap = true, }, {desc = "Rename code symbol"})
 			end
 		},
 
