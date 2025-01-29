@@ -4,7 +4,7 @@ if not vim.g.vscode then
 		build = ":TSUpdate",
 		config = function(_, opts)
 			local ensure_installed = { "lua", "vim", "go", "rust", "kotlin", "java", "dart", "yaml" }
-			if !string.match(string.lower(vim.loop.os_uname().sysname), "windows") then
+			if not string.match(string.lower(vim.loop.os_uname().sysname), "windows") then
 				table.insert(ensure_installed, "bash")
 			end
 
