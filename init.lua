@@ -11,8 +11,6 @@ vim.cmd("set nowrap")
 
 require("custom_plugins.yank_on_delete_disabler").setup()
 
-vim.lsp.set_log_level('trace')
-
 require("config.lazy")
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("vague")

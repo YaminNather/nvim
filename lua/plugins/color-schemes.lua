@@ -7,6 +7,12 @@ if not vim.g.vscode then
 			main = "catppuccin",
 			config = true,
 		},
+
+		{
+			'vague2k/vague.nvim',
+			opts = {},
+
+		}
 	}
 else
 	return {}
