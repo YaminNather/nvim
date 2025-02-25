@@ -13,6 +13,8 @@ require("custom_plugins.yank_on_delete_disabler").setup()
 
 require("config.lazy")
 
-vim.cmd.colorscheme("vague")
+if not vim.g.vscode then
+	vim.cmd.colorscheme("vague")
+end
 
 vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {})

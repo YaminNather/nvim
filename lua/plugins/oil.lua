@@ -18,4 +18,6 @@ if not vim.g.vscode then
 			vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		end
 	}
+else
+	return {}
 end
