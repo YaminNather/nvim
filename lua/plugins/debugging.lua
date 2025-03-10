@@ -10,22 +10,8 @@ if not vim.g.vscode then
 				vim.keymap.set('n', '<F11>', function() require('dap').step_into() end, {desc = "Step into"})
 				vim.keymap.set('n', '<F12>', function() require('dap').step_out() end, {desc = "Step out"})
 
-				vim.keymap.set(
-					"n",
-					"<Leader>duh",
-					function()
-						require('dap.ui.widgets').hover()
-					end,
-					{desc = "Debug Hover"}
-				)
-				vim.keymap.set(
-					"n",
-					"<Leader>dup",
-					function()
-						require('dap.ui.widgets').preview()
-					end,
-					{desc = "Debug preview"}
-				)
+				vim.keymap.set("n", "<Leader>duh", function() require('dap.ui.widgets').hover() end, {desc = "Debug Hover"})
+				vim.keymap.set("n", "<Leader>dup", function() require('dap.ui.widgets').preview() end, {desc = "Debug preview"})
 				vim.keymap.set(
 					"n",
 					"<Leader>dus",

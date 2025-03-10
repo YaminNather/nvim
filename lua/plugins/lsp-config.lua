@@ -21,7 +21,8 @@ if not vim.g.vscode then
 			config = function(_, opts)
 				local lspconfig = require("lspconfig")
 
-				local lsps = { "lua_ls", "rust_analyzer", "gopls", "kotlin_language_server", "bashls", "vtsls" }
+				-- local lsps = { "lua_ls", "rust_analyzer", "gopls", "kotlin_language_server", "bashls", "vtsls" }
+				local lsps = { "lua_ls", "gopls", "kotlin_language_server", "bashls", "vtsls" }
 
 				for _, lsp in ipairs(lsps) do
 					local capabilities = require("blink.cmp").get_lsp_capabilities()

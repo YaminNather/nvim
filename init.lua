@@ -17,4 +17,4 @@ if not vim.g.vscode then
 	vim.cmd.colorscheme("vague")
 end
 
-vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {})
+vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {desc = "Close buffer"})

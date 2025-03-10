@@ -5,6 +5,12 @@ if not vim.g.vscode then
 		dependencies = {
 			'nvim-lua/plenary.nvim',
 		},
+		opts = {
+			debugger = {
+				enabled = true,
+				exception_breakpoints = {},
+			},
+		},
 		config = function(_, opts)
 			local flutter_tools = require("flutter-tools")
 			flutter_tools.setup(opts)
