@@ -22,7 +22,38 @@ if not vim.g.vscode then
 					end,
 					{desc = "Open debugging sidebar"}
 				)
+
+				vim.keymap.set('n', '<S-F5>', function() require('dap').terminate() end, {desc = "Debug terminate"})
 			end
+		},
+
+		{
+			"rcarriga/nvim-dap-ui",
+			dependencies = {
+				"mfussenegger/nvim-dap",
+				"nvim-neotest/nvim-nio",
+			},
+			config = function(_, opts)
+				local dap = require("dap")
+				local dapui = require("dapui")
+
+				dapui.setup(opts)
+
+				vim.keymap.set("n", "<Leader>dut", function() dapui.toggle() end, {desc = "Debug dap ui toggle"})
+
+				dap.listeners.before.attach.dapui_config = function()
+					dapui.open()
+				end
+				dap.listeners.before.launch.dapui_config = function()
+					dapui.open()
+				end
+				dap.listeners.before.event_terminated.dapui_config = function()
+					dapui.close()
+				end
+				dap.listeners.before.event_exited.dapui_config = function()
+					dapui.close()
+				end
+			end,
 		},
 
 		{

@@ -1,4 +1,6 @@
 if not vim.g.vscode then
+	local lsps = { "lua_ls", "gopls", "kotlin_language_server", "jdtls", "bashls", "vtsls", "svelte", "tailwindcss", "intelephense" }
+
 	return {
 		{ 
 			"williamboman/mason.nvim",
@@ -8,7 +10,7 @@ if not vim.g.vscode then
 		{ 
 			"williamboman/mason-lspconfig.nvim",
 			opts = {
-				ensure_installed = { "lua_ls", "gopls", "kotlin_language_server", "jdtls", "bashls", "vtsls" },
+				ensure_installed = lsps,
 			},
 			config = true,
 		},
@@ -22,7 +24,7 @@ if not vim.g.vscode then
 				local lspconfig = require("lspconfig")
 
 				-- local lsps = { "lua_ls", "rust_analyzer", "gopls", "kotlin_language_server", "bashls", "vtsls" }
-				local lsps = { "lua_ls", "gopls", "kotlin_language_server", "bashls", "vtsls" }
+				-- local lsps = { "lua_ls", "gopls", "kotlin_language_server", "bashls", "vtsls", "svelte", "tailwindcss", "intelephense" }
 
 				for _, lsp in ipairs(lsps) do
 					local capabilities = require("blink.cmp").get_lsp_capabilities()

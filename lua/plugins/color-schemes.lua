@@ -11,8 +11,12 @@ if not vim.g.vscode then
 		{
 			'vague2k/vague.nvim',
 			opts = {},
+		},
 
-		}
+		{
+			"olimorris/onedarkpro.nvim",
+			priority = 1000,
+		},
 	}
 else
 	return {}

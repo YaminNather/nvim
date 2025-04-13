@@ -14,7 +14,7 @@ require("custom_plugins.yank_on_delete_disabler").setup()
 require("config.lazy")
 
 if not vim.g.vscode then
-	vim.cmd.colorscheme("vague")
+	vim.cmd.colorscheme("onedark_vivid")
 end
 
 vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {desc = "Close buffer"})
