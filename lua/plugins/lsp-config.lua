@@ -49,7 +49,8 @@ if not vim.g.vscode then
 
 				for _, lsp in ipairs(nvim_lspconfig_lsps) do
 					local capabilities = require("blink.cmp").get_lsp_capabilities()
-					lspconfig[lsp].setup(capabilities)
+					-- lspconfig[lsp].setup(capabilities)
+					vim.lsp.config(lsp, capabilities)
 				end
 
 				vim.keymap.set('i', "<C-k>", function() vim.lsp.buf.signature_help() end, { silent = true, noremap = true, }, {desc = "Open LSP signature help"})
