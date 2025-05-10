@@ -1,16 +1,37 @@
 if not vim.g.vscode then
-	local lsps = { "lua_ls", "gopls", "kotlin_language_server", "jdtls", "bashls", "vtsls", "svelte", "tailwindcss", "intelephense" }
+	local lsps = {
+		"lua_ls",
+		"gopls",
+		"kotlin_language_server",
+		"jdtls",
+		"bashls",
+		"vtsls",
+		"svelte",
+		"tailwindcss",
+		"intelephense",
+		"basedpyright",
+		"angularls",
+		"html",
+	}
+
+	local mason_lspconfig_lsps = {}
+	local nvim_lspconfig_lsps = {"gh_actions_ls"}
+
+	for i = 1, #lsps, 1 do
+		table.insert(mason_lspconfig_lsps, lsps[i])
+		table.insert(nvim_lspconfig_lsps, lsps[i])
+	end
 
 	return {
-		{ 
+		{
 			"williamboman/mason.nvim",
 			config = true,
 		},
 
-		{ 
+		{
 			"williamboman/mason-lspconfig.nvim",
 			opts = {
-				ensure_installed = lsps,
+				ensure_installed = mason_lspconfig_lsps,
 			},
 			config = true,
 		},
@@ -26,7 +47,7 @@ if not vim.g.vscode then
 				-- local lsps = { "lua_ls", "rust_analyzer", "gopls", "kotlin_language_server", "bashls", "vtsls" }
 				-- local lsps = { "lua_ls", "gopls", "kotlin_language_server", "bashls", "vtsls", "svelte", "tailwindcss", "intelephense" }
 
-				for _, lsp in ipairs(lsps) do
+				for _, lsp in ipairs(nvim_lspconfig_lsps) do
 					local capabilities = require("blink.cmp").get_lsp_capabilities()
 					lspconfig[lsp].setup(capabilities)
 				end

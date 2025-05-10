@@ -25,9 +25,11 @@ if not vim.g.vscode then
 				-- },
 
 			},
+			cmdline = {
+				enabled = false,
+			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer", },
-				cmdline = {},
 			},
 
 			-- signature = { enabled = true },
