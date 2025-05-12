@@ -55,6 +55,9 @@ if not vim.g.vscode then
 
 				vim.keymap.set('i', "<C-k>", function() vim.lsp.buf.signature_help() end, { silent = true, noremap = true, }, {desc = "Open LSP signature help"})
 				vim.keymap.set('n', "<Leader>cr", function() vim.lsp.buf.rename() end, { silent = true, noremap = true, }, {desc = "Rename code symbol"})
+
+				vim.keymap.set("n", "<Leader>xt", function() vim.diagnostic.config({virtual_text = not vim.diagnostic.config().virtual_text}) end, {desc = "Toggle diagnostic text", silent = true, noremap = true})
+				vim.keymap.set("n", "<Leader>xl", function() vim.diagnostic.config({virtual_lines = not vim.diagnostic.config().virtual_lines}) end, {desc = "Toggle diagnostic lines", silent = true, noremap = true})
 			end
 		},
 
