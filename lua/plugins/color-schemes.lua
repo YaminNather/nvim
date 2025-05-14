@@ -17,6 +17,11 @@ if not vim.g.vscode then
 			"olimorris/onedarkpro.nvim",
 			priority = 1000,
 		},
+
+		{
+			"Yazeed1s/oh-lucy.nvim",
+			priority = 1000,
+		},
 	}
 else
 	return {}
