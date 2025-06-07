@@ -22,6 +22,24 @@ if not vim.g.vscode then
 			"Yazeed1s/oh-lucy.nvim",
 			priority = 1000,
 		},
+
+		{
+			"folke/tokyonight.nvim",
+			lazy = false,
+			priority = 1000,
+			opts = {
+				-- transparent = "true",
+			},
+		},
+
+		{
+			"scottmckendry/cyberdream.nvim",
+			lazy = false,
+			priority = 1000,
+			opts = {
+				-- transparent = true,
+			},
+		},
 	}
 else
 	return {}

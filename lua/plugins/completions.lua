@@ -13,6 +13,14 @@ if not vim.g.vscode then
 
 				['<Up>'] = { 'select_prev', 'fallback' },
 				['<Down>'] = { 'select_next', 'fallback' },
+
+				['<C-p>'] = { 
+					function(cmp) 
+						print("CustomLog: showing completions")
+						cmp.show({})
+						print("CustomLog: should have showed completions")
+					end 
+				},
 			},
 			appearance = {
 				use_nvim_cmp_as_default = true,
