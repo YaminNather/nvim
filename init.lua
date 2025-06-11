@@ -11,6 +11,23 @@ vim.cmd("set nowrap")
 
 require("custom_plugins.yank_on_delete_disabler").setup()
 
+if not vim.g.vscode then
+	if vim.loop.os_uname().sysname:lower():match('windows') then
+		local powershell_options = {
+		  shell = "powershell",
+		  shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+		  shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+		  shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+		  shellquote = "",
+		  shellxquote = "",
+		}
+
+		for option, value in pairs(powershell_options) do
+		  vim.opt[option] = value
+		end
+	end
+end
+
 require("config.lazy")
 
 if not vim.g.vscode then
