@@ -3,7 +3,9 @@ if not vim.g.vscode then
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		opts = {
-			open_mapping = '\\'
+			open_mapping = '\\',
+			insert_mappings = false,
+			terminal_mappings = false,
 		},
 	}
 else 
