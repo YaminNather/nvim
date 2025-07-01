@@ -33,6 +33,15 @@ if not vim.g.vscode then
 		},
 
 		{
+			"EdenEast/nightfox.nvim",
+			opts = {
+				options = {
+					transparent = true,
+				}
+			},
+		},
+
+		{
 			"scottmckendry/cyberdream.nvim",
 			lazy = false,
 			priority = 1000,

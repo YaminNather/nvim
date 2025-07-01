@@ -3,16 +3,18 @@ if not vim.g.vscode then
 		{
 			"mfussenegger/nvim-dap",
 			config = function(_, opts)
-				vim.keymap.set("n", "<Leader>dt", function() require('dap').toggle_breakpoint() end, {desc = "Toggle breakpoint"})
+				local dap = require('dap')
+				local dap = require('dap.ui.widgets')
+				vim.keymap.set("n", "<Leader>dt", function() dap.toggle_breakpoint() end, {desc = "Toggle breakpoint"})
 
-				vim.keymap.set('n', '<F5>', function() require('dap').continue() end, {desc =  "Continue"})
-				vim.keymap.set('n', '<S-F5>', function() require('dap').terminate() end, {desc = "Debug terminate"})
-				vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, {desc = "Step over"})
-				vim.keymap.set('n', '<F11>', function() require('dap').step_into() end, {desc = "Step into"})
-				vim.keymap.set('n', '<S-F11>', function() require('dap').step_out() end, {desc = "Step out"})
+				vim.keymap.set('n', '<F5>', function() dap.continue() end, {desc =  "Continue"})
+				vim.keymap.set('n', '<S-F5>', function() dap.terminate() end, {desc = "Debug terminate"})
+				vim.keymap.set('n', '<F10>', function() dap.step_over() end, {desc = "Step over"})
+				vim.keymap.set('n', '<F11>', function() dap.step_into() end, {desc = "Step into"})
+				vim.keymap.set('n', '<S-F11>', function() dap.step_out() end, {desc = "Step out"})
 
-				vim.keymap.set("n", "<Leader>duh", function() require('dap.ui.widgets').hover() end, {desc = "Debug Hover"})
-				vim.keymap.set("n", "<Leader>dup", function() require('dap.ui.widgets').preview() end, {desc = "Debug preview"})
+				vim.keymap.set("n", "<Leader>duh", function() dap_ui_widgets.hover() end, {desc = "Debug Hover"})
+				vim.keymap.set("n", "<Leader>dup", function() dap_ui_widgets.preview() end, {desc = "Debug preview"})
 				vim.keymap.set(
 					"n",
 					"<Leader>dus",
