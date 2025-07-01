@@ -31,11 +31,14 @@ end
 require("config.lazy")
 
 if not vim.g.vscode then
-	vim.cmd.colorscheme("cyberdream")
+	vim.cmd.colorscheme("nordfox")
 
     vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#AAAAAA', bold=true })
     vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
     vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#AAAAAA', bold=true })
+	
 end
 
 -- vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {desc = "Close buffer"})
+
+require("buffer_oil").setup()
