@@ -5,4 +5,6 @@ if not vim.g.vscode then
 			vim.keymap.set("n", "<Leader>bd", ":Bdelete<CR>", {desc = "Delete buffer"})
 		end
 	}
+else
+	return {}
 end

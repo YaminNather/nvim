@@ -6,6 +6,7 @@ if not vim.g.vscode then
 			open_mapping = '\\',
 			insert_mappings = false,
 			terminal_mappings = false,
+			direction = 'float',
 		},
 	}
 else 

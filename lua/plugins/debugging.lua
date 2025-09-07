@@ -4,7 +4,7 @@ if not vim.g.vscode then
 			"mfussenegger/nvim-dap",
 			config = function(_, opts)
 				local dap = require('dap')
-				local dap = require('dap.ui.widgets')
+				local dap_ui_widgets = require('dap.ui.widgets')
 				vim.keymap.set("n", "<Leader>dt", function() dap.toggle_breakpoint() end, {desc = "Toggle breakpoint"})
 
 				vim.keymap.set('n', '<F5>', function() dap.continue() end, {desc =  "Continue"})

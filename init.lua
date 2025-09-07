@@ -31,12 +31,13 @@ end
 require("config.lazy")
 
 if not vim.g.vscode then
-	vim.cmd.colorscheme("nordfox")
+	vim.cmd.colorscheme("jb")
 
     vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#AAAAAA', bold=true })
     vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
     vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#AAAAAA', bold=true })
-	
+
+	vim.o.termguicolors = true
 end
 
 -- vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {desc = "Close buffer"})
