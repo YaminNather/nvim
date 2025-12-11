@@ -19,7 +19,8 @@ if not vim.g.vscode then
 		},
 
 		{
-			"Yazeed1s/oh-lucy.nvim",
+			"YaminNather/oh-lucy.nvim",
+			branch = 'test',
 			priority = 1000,
 		},
 
@@ -57,9 +58,37 @@ if not vim.g.vscode then
 			opts = {},
 			config = function()
 				-- require("jb").setup({transparent = true})
-				vim.cmd("colorscheme jb")
+				-- vim.cmd("colorscheme jb")
 			end,
-		}
+		},
+
+		{ 
+			"akinsho/horizon.nvim", 
+			version = "*",
+			config = true,
+		},
+
+		{
+			"aktersnurra/no-clown-fiesta.nvim",
+			opts = {
+				theme = "dim",
+			},
+			config = true,
+		},
+
+		{ 
+			'olivercederborg/poimandres.nvim',
+			lazy = false,
+			priority = 1000,
+			config = true,
+		},
+
+		{
+			'marko-cerovac/material.nvim',
+			lazy = false,
+			priority = 1000,
+			config = true,
+		},
 	}
 else
 	return {}

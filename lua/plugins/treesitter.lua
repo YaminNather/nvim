@@ -3,7 +3,7 @@ if not vim.g.vscode then
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function(_, opts)
-			local ensure_installed = { "lua", "vim", "go", "rust", "kotlin", "java", "dart", "yaml", "svelte", "php", "terraform", "hcl", "blade", "html", "typescript", "javascript" }
+			local ensure_installed = { "lua", "vim", "go", "rust", "kotlin", "java", "dart", "yaml", "svelte", "php", "terraform", "hcl", "blade", "html", "typescript", "javascript", "prisma", "powershell" }
 			if not string.match(string.lower(vim.loop.os_uname().sysname), "windows") then
 				table.insert(ensure_installed, "bash")
 			end
@@ -16,4 +16,6 @@ if not vim.g.vscode then
 			})
 		end
 	}
+else
+	return {}
 end

@@ -13,4 +13,6 @@ if not vim.g.vscode then
 			},
 		}
 	}
+else
+	return {}
 end

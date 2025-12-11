@@ -4,6 +4,9 @@ if not vim.g.vscode then
 		dependencies = {
 			'nvim-tree/nvim-web-devicons'
 		},
+		opts = {
+			theme = 'tomorrow_night',
+		},
 		config = true,
 	}
 else

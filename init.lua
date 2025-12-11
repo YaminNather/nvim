@@ -1,5 +1,4 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = ' ' vim.g.maplocalleader = ' '
 
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -31,15 +30,20 @@ end
 require("config.lazy")
 
 if not vim.g.vscode then
-	vim.cmd.colorscheme("jb")
+	vim.g.material_style = "deep ocean"
+	vim.cmd.colorscheme("material")
+	vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#000000', bg = '#ffffff' })
 
-    vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#AAAAAA', bold=true })
-    vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
-    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#AAAAAA', bold=true })
+	-- vim.cmd.colorscheme("oh-lucy")
+	-- vim.api.nvim_set_hl(0, 'StatusLine', { fg='#695f69', bg='#000000' })
+	-- vim.api.nvim_set_hl(0, 'StatusLineNC', { fg='#695f69', bg='#000000' })
+	-- vim.api.nvim_set_hl(0, 'Title', { fg='#695f69', bg='#000000' })
 
-	vim.o.termguicolors = true
+    -- vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#333333', bold=true })
+    -- vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
+    -- vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#AAAAAA', bold=true })
+
+    -- vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {desc = "Close buffer"})
+
+	require("buffer_oil").setup()
 end
-
--- vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {desc = "Close buffer"})
-
-require("buffer_oil").setup()

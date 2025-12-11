@@ -10,6 +10,10 @@ if not vim.g.vscode then
 				enabled = true,
 				exception_breakpoints = {},
 			},
+			fvm = true,
+			widget_guides = {
+				enabled = true,
+			},
 		},
 		config = function(_, opts)
 			local flutter_tools = require("flutter-tools")

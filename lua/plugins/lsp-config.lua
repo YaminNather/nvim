@@ -10,7 +10,7 @@ if not vim.g.vscode then
 		"tailwindcss",
 		"intelephense",
 		-- "basedpyright",
-		"angularls",
+		-- "angularls",
 		"html",
 	}
 
