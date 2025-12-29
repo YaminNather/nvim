@@ -47,3 +47,5 @@ if not vim.g.vscode then
 
 	require("buffer_oil").setup()
 end
+
+require("opentofu_support").setup()

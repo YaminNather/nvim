@@ -12,6 +12,7 @@ if not vim.g.vscode then
 		-- "basedpyright",
 		-- "angularls",
 		"html",
+		"tofu_ls",
 	}
 
 	local mason_lspconfig_lsps = {}
@@ -42,14 +43,8 @@ if not vim.g.vscode then
 				'saghen/blink.cmp',
 			},
 			config = function(_, opts)
-				local lspconfig = require("lspconfig")
-
-				-- local lsps = { "lua_ls", "rust_analyzer", "gopls", "kotlin_language_server", "bashls", "vtsls" }
-				-- local lsps = { "lua_ls", "gopls", "kotlin_language_server", "bashls", "vtsls", "svelte", "tailwindcss", "intelephense" }
-
 				local capabilities = require("blink.cmp").get_lsp_capabilities()
 				for _, lsp in ipairs(nvim_lspconfig_lsps) do
-					-- lspconfig[lsp].setup(capabilities)
 					vim.lsp.config(lsp, capabilities)
 				end
 
