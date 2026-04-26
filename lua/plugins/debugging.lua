@@ -3,19 +3,22 @@ if not vim.g.vscode then
 		{
 			"mfussenegger/nvim-dap",
 			config = function(_, opts)
+				local os_checker = require('os_checker')
 				local dap = require('dap')
 				local dap_ui_widgets = require('dap.ui.widgets')
 
 				vim.keymap.set("n", "<Leader>dt", function() dap.toggle_breakpoint() end, {desc = "Toggle breakpoint"})
 
-				vim.keymap.set('n', '<F5>', function() dap.continue() end, {desc =  "Continue"})
-				vim.keymap.set('n', '<S-F5>', function() dap.terminate() end, {desc = "Debug terminate"})
-				vim.keymap.set('n', '<F10>', function() dap.step_over() end, {desc = "Step over"})
-				vim.keymap.set('n', '<F12>', function() dap.step_into() end, {desc = "Step into"})
-				vim.keymap.set('n', '<S-F12>', function() dap.step_out() end, {desc = "Step out"})
+				vim.keymap.set('n', '<F5>', function() dap.continue() end, {desc =  "DAP Continue"})
+				vim.keymap.set('n', '<Leader>dr', function() dap.restart() end, {desc = "DAP Restart"})
+				vim.keymap.set('n', '<S-F5>', function() dap.terminate() end, {desc = "DAP Debug terminate"})
+				vim.keymap.set('n', '<Leader>ds', function() dap.terminate() end, {desc = "DAP Debug terminate"})
+				vim.keymap.set('n', '<F10>', function() dap.step_over() end, {desc = "DAP Step over"})
+				vim.keymap.set('n', '<F12>', function() dap.step_into() end, {desc = "DAP Step into"})
+				vim.keymap.set('n', '<S-F12>', function() dap.step_out() end, {desc = "DAP Step out"})
 
-				vim.keymap.set("n", "<Leader>duh", function() dap_ui_widgets.hover() end, {desc = "Debug Hover"})
-				vim.keymap.set("n", "<Leader>dup", function() dap_ui_widgets.preview() end, {desc = "Debug preview"})
+				vim.keymap.set("n", "<Leader>duh", function() dap_ui_widgets.hover() end, {desc = "DAP UI Debug Hover"})
+				vim.keymap.set("n", "<Leader>dup", function() dap_ui_widgets.preview() end, {desc = "DAP UI Debug preview"})
 				vim.keymap.set(
 					"n",
 					"<Leader>dus",
@@ -27,14 +30,24 @@ if not vim.g.vscode then
 					{desc = "Open debugging sidebar"}
 				)
 
+				local js_dap_executable = nil
+				if os_checker.os() == os_checker.OS.windows then
+					js_dap_executable = {
+						command = "node",
+						args = {"E:\\Program Files\\js-debug-dap\\js-debug\\src\\dapDebugServer.js", "5858"},
+					}
+				elseif os_checker.os() == os_checker.OS.linux then
+					js_dap_executable = {
+						command = "js-debug-dap",
+						args = {"5858"}
+					}
+				end
+
 				dap.adapters["pwa-node"] = {
 					type = "server",
 					host = "localhost",
 					port = "5858",
-					executable = {
-						command = "node",
-						args = {"E:\\Program Files\\js-debug-dap\\js-debug\\src\\dapDebugServer.js", "5858"},
-					}
+					executable = js_dap_executable,
 				}
 
 				dap.adapters["node"] = function(cb, config)
@@ -48,33 +61,6 @@ if not vim.g.vscode then
 						cb(nativeAdapter)
 					end
 				end
-
-				-- dap.adapters["node-terminal"] = {
-				-- 	type = "server",
-				-- 	host = "127.0.0.1",
-				-- 	port = 8123,
-				-- 	executable = {
-				-- 		command = "js-debug-adapter"
-				-- 	}
-				-- }
-
-				-- dap.adapters["node-terminal"] = {
-				-- 	name = "node-terminal",
-				-- 	type = "executable",
-				-- 	command = "js-debug-adapter",
-				-- }
-
-				-- for _, language in ipairs { "javascript" ,"typescript" } do
-				-- 	dap.configurations[language] = {
-				-- 		{
-				-- 			name = "Launch application",
-				-- 			type = "node-terminal",
-				-- 			request = "launch",
-				-- 			cwd = "${workspaceFolder}",
-				-- 			command = "npm run start:dev",
-				-- 		},
-				-- 	}
-				-- end
 			end
 		},
 		

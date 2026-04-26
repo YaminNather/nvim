@@ -1,4 +1,5 @@
-vim.g.mapleader = ' ' vim.g.maplocalleader = ' '
+vim.g.mapleader = ' ' 
+vim.g.maplocalleader = ' '
 
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -30,22 +31,38 @@ end
 require("config.lazy")
 
 if not vim.g.vscode then
-	vim.g.material_style = "deep ocean"
-	vim.cmd.colorscheme("material")
-	vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#000000', bg = '#ffffff' })
+	-- vim.cmd.colorscheme("oh-lucy")
+	vim.cmd.colorscheme("vscode")
+
+	-- vim.g.material_style = "deep ocean"
+	-- vim.cmd.colorscheme("material")
+	-- vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#000000', bg = '#ffffff' })
 
 	-- vim.cmd.colorscheme("oh-lucy")
 	-- vim.api.nvim_set_hl(0, 'StatusLine', { fg='#695f69', bg='#000000' })
 	-- vim.api.nvim_set_hl(0, 'StatusLineNC', { fg='#695f69', bg='#000000' })
 	-- vim.api.nvim_set_hl(0, 'Title', { fg='#695f69', bg='#000000' })
 
-    -- vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#333333', bold=true })
-    -- vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
-    -- vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#AAAAAA', bold=true })
+    vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#888888', bold=true })
+    vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
+    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#888888', bold=true })
 
     -- vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {desc = "Close buffer"})
 
 	require("buffer_oil").setup()
-end
+	require("custom_plugins.explorer_toggler").setup()
 
-require("opentofu_support").setup()
+	vim.keymap.set(
+		'n',
+		'<Leader>lr',
+		function()
+			vim.wo.number = not vim.wo.number
+			vim.wo.relativenumber = not vim.wo.relativenumber
+		end,
+		{ silent = true, desc = "Toggle relative line numbers" }
+	)
+
+	require("opentofu_support").setup()
+
+	require('vim._core.ui2').enable()
+end

@@ -89,6 +89,11 @@ if not vim.g.vscode then
 			priority = 1000,
 			config = true,
 		},
+
+		{
+			'Mofiqul/vscode.nvim',
+			config = true,
+		},
 	}
 else
 	return {}

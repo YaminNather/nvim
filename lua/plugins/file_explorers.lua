@@ -19,10 +19,15 @@ if not vim.g.vscode then
 			dependencies = {
 				"echasnovski/mini.icons",
 			},
-			config = function(_, opts)
-				require("oil").setup(opts)
+			config = function(config, opts)
+				require('oil').setup(opts)
 
-				vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+				require("custom_plugins.explorer_toggler").register_explorer(
+					function()
+						vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+					end,
+					function() end
+				)
 			end
 		},
 
@@ -41,7 +46,17 @@ if not vim.g.vscode then
 					hijack_netrw_behavior = "disabled",
 				},
 			},
-		}
+			config = function(config, opts)
+				require('neo-tree').setup(opts)
+
+				require("custom_plugins.explorer_toggler").register_explorer(
+					function()
+						vim.keymap.set("n", "<leader>e", "<CMD>Neotree toggle<CR>", { desc = "Toggle Neotree" })
+					end,
+					function() end
+				)
+			end
+		},
 	}
 else
 	return {}

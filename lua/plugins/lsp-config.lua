@@ -10,6 +10,7 @@ if not vim.g.vscode then
 		"tailwindcss",
 		"intelephense",
 		-- "basedpyright",
+		"ty",
 		-- "angularls",
 		"html",
 		"tofu_ls",
@@ -48,7 +49,7 @@ if not vim.g.vscode then
 					vim.lsp.config(lsp, capabilities)
 				end
 
-				vim.lsp.config("basedpyright", capabilities)
+				-- vim.lsp.config("basedpyright", capabilities)
 
 				vim.keymap.set('i', "<C-k>", function() vim.lsp.buf.signature_help() end, { silent = true, noremap = true, }, {desc = "Open LSP signature help"})
 				vim.keymap.set('n', "<Leader>cr", function() vim.lsp.buf.rename() end, { silent = true, noremap = true, }, {desc = "Rename code symbol"})
