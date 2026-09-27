@@ -10,9 +10,9 @@ if not vim.g.vscode then
 					show_hidden = true,
 				},
 				columns = {
-					"permissions",
-					"size",
-					"mtime",
+					-- "permissions",
+					-- "size",
+					-- "mtime",
 					"icon",
 				},
 			},
@@ -23,6 +23,8 @@ if not vim.g.vscode then
 				require('oil').setup(opts)
 
 				require("custom_plugins.explorer_toggler").register_explorer(
+					"oil",
+					0,
 					function()
 						vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 					end,
@@ -50,8 +52,10 @@ if not vim.g.vscode then
 				require('neo-tree').setup(opts)
 
 				require("custom_plugins.explorer_toggler").register_explorer(
+					"neo-tree",
+					1,
 					function()
-						vim.keymap.set("n", "<leader>e", "<CMD>Neotree toggle<CR>", { desc = "Toggle Neotree" })
+						vim.keymap.set("n", "<leader>e", "<CMD>Neotree toggle position=right<CR>", { desc = "Toggle Neotree" })
 					end,
 					function() end
 				)

@@ -29,7 +29,7 @@ if not vim.g.vscode then
 			lazy = false,
 			priority = 1000,
 			opts = {
-				-- transparent = "true",
+				transparent = "true",
 			},
 		},
 
@@ -47,7 +47,7 @@ if not vim.g.vscode then
 			lazy = false,
 			priority = 1000,
 			opts = {
-				-- transparent = true,
+				transparent = true,
 			},
 		},
 
@@ -63,7 +63,7 @@ if not vim.g.vscode then
 		},
 
 		{ 
-			"akinsho/horizon.nvim", 
+			"akinsho/horizon.nvim",
 			version = "*",
 			config = true,
 		},
@@ -93,6 +93,20 @@ if not vim.g.vscode then
 		{
 			'Mofiqul/vscode.nvim',
 			config = true,
+		},
+
+		{
+			"projekt0n/github-nvim-theme",
+			name = "github-theme",
+			lazy = false,
+			priority = 1000,
+			config = true,
+		},
+
+		{
+			"xiyaowong/transparent.nvim",
+			config = true,
+			lazy = false,
 		},
 	}
 else

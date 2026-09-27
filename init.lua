@@ -3,7 +3,6 @@ vim.g.maplocalleader = ' '
 
 vim.wo.number = true
 vim.wo.relativenumber = true
-
 vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set softtabstop=0")
@@ -31,8 +30,13 @@ end
 require("config.lazy")
 
 if not vim.g.vscode then
+	-- vim.cmd.colorscheme("cyberdream")
+	-- vim.cmd.colorscheme("tokyonight")
 	-- vim.cmd.colorscheme("oh-lucy")
-	vim.cmd.colorscheme("vscode")
+	-- vim.cmd.colorscheme("vscode")
+	-- vim.cmd.colorscheme("github_light")
+	-- vim.cmd.colorscheme("catppuccin-latte")
+	vim.cmd.colorscheme("horizon")
 
 	-- vim.g.material_style = "deep ocean"
 	-- vim.cmd.colorscheme("material")
@@ -44,10 +48,11 @@ if not vim.g.vscode then
 	-- vim.api.nvim_set_hl(0, 'Title', { fg='#695f69', bg='#000000' })
 
     vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#888888', bold=true })
-    vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
+    vim.api.nvim_set_hl(0, 'LineNr', { fg='#999999', bold=true })
     vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#888888', bold=true })
 
     -- vim.keymap.set("n", "<Leader>bd", "<cmd>b#|bd#<Cr>", {desc = "Close buffer"})
+	vim.keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", {desc = "Exit terminal node"})
 
 	require("buffer_oil").setup()
 	require("custom_plugins.explorer_toggler").setup()
@@ -65,4 +70,12 @@ if not vim.g.vscode then
 	require("opentofu_support").setup()
 
 	require('vim._core.ui2').enable()
+
+	-- vim.api.nvim_create_autocmd("ColorScheme", {
+	--   pattern = "*",
+	--   callback = function()
+	-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
+	-- 	vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
+	--   end,
+	-- })
 end
